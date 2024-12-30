@@ -1,73 +1,71 @@
-import * as React from 'react';
-import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import Drawer from '@mui/material/Drawer';
+import React from "react";
+import { Drawer, Box, IconButton } from "@mui/material";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import PieChartIcon from "@mui/icons-material/PieChart";
+import DescriptionIcon from "@mui/icons-material/Description";
+import PeopleIcon from "@mui/icons-material/People";
+import CubeIcon from "@mui/icons-material/ViewInAr"; // Replace with suitable icon
 
-const DrawerHeader = styled('div')(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-}));
-
-
-
-export default function MiniDrawer() {
-    const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
-
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
-
-
+const Sidebar = () => {
     return (
-        <Drawer variant="permanent" open={open}
-            PaperProps={{
-                sx: {
-                    width: '80px'
-                }
+        <Drawer
+            variant="permanent"
+            anchor="left"
+            sx={{
+                "& .MuiDrawer-paper": {
+                    width: "80px",
+                    backgroundColor: "white",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    borderRight: "1px solid #e0e0e0",
+                    boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
+                },
             }}
         >
-            <Divider />
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                        <ListItemButton
+            {/* Top Logo */}
+            <Box
+                sx={{
+                    marginBottom: "20px",
+                    marginTop: "10px",
+                    display: "flex",
+                    justifyContent: "center",
+                }}
+            >
+                <IconButton
+                    sx={{
+                        padding: "10px",
+                        backgroundColor: "#0044cc",
+                        "&:hover": { backgroundColor: "#0033a1" },
+                        color: "white",
+                    }}
+                >
+                    <img
+                        src="/path/to/logo.png" // Replace with the actual path to your logo
+                        alt="Logo"
+                        style={{ width: "30px", height: "30px" }}
+                    />
+                </IconButton>
+            </Box>
 
-                        >
-                            <ListItemIcon
-
-                            >
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText
-                                primary={text}
-
-                            />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
+            {/* Menu Icons */}
+            <IconButton sx={{ color: "#555", margin: "10px 0" }}>
+                <DashboardIcon />
+            </IconButton>
+            <IconButton sx={{ color: "#555", margin: "10px 0" }}>
+                <PieChartIcon />
+            </IconButton>
+            <IconButton sx={{ color: "#555", margin: "10px 0" }}>
+                <DescriptionIcon />
+            </IconButton>
+            <IconButton sx={{ color: "#555", margin: "10px 0" }}>
+                <PeopleIcon />
+            </IconButton>
+            <IconButton sx={{ color: "#555", margin: "10px 0" }}>
+                <CubeIcon />
+            </IconButton>
         </Drawer>
     );
-}
+};
+
+export default Sidebar;

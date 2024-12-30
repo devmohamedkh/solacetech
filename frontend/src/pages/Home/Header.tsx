@@ -29,7 +29,6 @@ function Header() {
 
 const styles = {
     root: {
-        mt: '24px',
         mb: '48px'
     },
     title: {

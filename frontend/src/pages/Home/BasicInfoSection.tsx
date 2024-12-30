@@ -67,13 +67,12 @@ const styles = {
     divider: { my: '16px' },
     btn: (active: boolean) => ({
         p: '16px',
-        fontWeight: '500', fontSize: '18px',
+        fontWeight: '400', fontSize: '18px',
         color: active ? 'rgba(15, 108, 189, 1)' : "rgba(5, 29, 73, 1)",
         backgroundColor: active ? 'rgba(244, 248, 254, 1)' : "#FFF",
         width: '100%',
         justifyContent: 'start',
         textTransform: 'capitalize'
-
     })
 }
 
