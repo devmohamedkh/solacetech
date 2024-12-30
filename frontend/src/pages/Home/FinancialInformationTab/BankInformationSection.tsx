@@ -6,7 +6,7 @@ function BankInformationSection() {
     return (
         <Card sx={styles.root}>
             <Box sx={styles.header}>
-                <Typography sx={styles.title}> Basic Information </Typography>
+                <Typography sx={styles.title}> Bank Information </Typography>
                 <Button variant="contained" sx={styles.btn} >
                     edit
                 </Button>
