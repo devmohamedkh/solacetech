@@ -1,71 +1,72 @@
-import React from "react";
 import { Drawer, Box, IconButton } from "@mui/material";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import PieChartIcon from "@mui/icons-material/PieChart";
-import DescriptionIcon from "@mui/icons-material/Description";
-import PeopleIcon from "@mui/icons-material/People";
-import CubeIcon from "@mui/icons-material/ViewInAr"; // Replace with suitable icon
+import LogoIcon from '../../images/logo.svg'
+import { ReactComponent as BoxIcon } from '../../images/Box.svg'
+import { ReactComponent as CreditReportIcon } from '../../images/CreditReport.svg'
+import { ReactComponent as ResearchIcon } from '../../images/Research.svg'
+import { ReactComponent as TeamsIcon } from '../../images/Teams.svg'
+import { ReactComponent as DashboardIcon } from '../../images/Dashboard.svg'
 
 const Sidebar = () => {
     return (
-        <Drawer
-            variant="permanent"
-            anchor="left"
-            sx={{
-                "& .MuiDrawer-paper": {
-                    width: "80px",
-                    backgroundColor: "white",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    borderRight: "1px solid #e0e0e0",
-                    boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
-                },
-            }}
-        >
-            {/* Top Logo */}
-            <Box
-                sx={{
-                    marginBottom: "20px",
-                    marginTop: "10px",
-                    display: "flex",
-                    justifyContent: "center",
-                }}
-            >
-                <IconButton
-                    sx={{
-                        padding: "10px",
-                        backgroundColor: "#0044cc",
-                        "&:hover": { backgroundColor: "#0033a1" },
-                        color: "white",
-                    }}
-                >
-                    <img
-                        src="/path/to/logo.png" // Replace with the actual path to your logo
-                        alt="Logo"
-                        style={{ width: "30px", height: "30px" }}
-                    />
-                </IconButton>
+        <Drawer variant="permanent" anchor="left" sx={styles.root}  >
+
+            <Box sx={styles.logoContainer}>
+                <Box
+                    component={'img'}
+                    src={LogoIcon}
+                    alt="Logo"
+                    style={styles.logoImg}
+                />
             </Box>
 
             {/* Menu Icons */}
-            <IconButton sx={{ color: "#555", margin: "10px 0" }}>
+            <IconButton sx={styles.iconMenuItem} className="active">
                 <DashboardIcon />
             </IconButton>
-            <IconButton sx={{ color: "#555", margin: "10px 0" }}>
-                <PieChartIcon />
+            <IconButton sx={styles.iconMenuItem}>
+                <CreditReportIcon />
             </IconButton>
-            <IconButton sx={{ color: "#555", margin: "10px 0" }}>
-                <DescriptionIcon />
+            <IconButton sx={styles.iconMenuItem}>
+                <ResearchIcon />
             </IconButton>
-            <IconButton sx={{ color: "#555", margin: "10px 0" }}>
-                <PeopleIcon />
+            <IconButton sx={styles.iconMenuItem}>
+                <TeamsIcon />
             </IconButton>
-            <IconButton sx={{ color: "#555", margin: "10px 0" }}>
-                <CubeIcon />
+            <IconButton sx={styles.iconMenuItem}>
+                <BoxIcon />
             </IconButton>
         </Drawer>
     );
 };
 
+
+const styles = {
+    root: {
+        "& .MuiDrawer-paper": {
+            width: "80px",
+            backgroundColor: "white",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            borderRight: "1px solid #e0e0e0",
+            boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
+        },
+    },
+    logoContainer: {
+        my: "40px",
+        display: "flex",
+        justifyContent: "center",
+    },
+    logoBtn: {
+        padding: "10px",
+        color: "white",
+    },
+    logoImg: { width: "45px", height: "45px" },
+    iconMenuItem: {
+        color: "#555", margin: "10px 0px",
+        "& .active": {
+            backgroundColor: 'rgba(0, 63, 173, 1)'
+        }
+    }
+}
 export default Sidebar;
